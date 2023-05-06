@@ -74,7 +74,7 @@ namespace MVC_SVotos.Functions
         }
 
         //METODOS DE LA CLASE BOOK
-        public static async System.Threading.Tasks.Task<IEnumerable<BD_SVotos.Candidato>> BicicletaGetList(string accessToken)
+        public static async System.Threading.Tasks.Task<IEnumerable<BD_SVotos.Candidato>> CandidatoGetList(string accessToken)
         {
             var response = await GetListMethod("Candidato/GetList", accessToken);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -87,7 +87,7 @@ namespace MVC_SVotos.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> BicicletaSet(BD_SVotos.Candidato object_to_serialize, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> CandidatoSet(BD_SVotos.Candidato object_to_serialize, string accessToken)
         {
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await SetMethod("Candidato/Set", json_, accessToken);//httpClient.PostAsync(baseurl + "User/Set", content);
@@ -101,7 +101,7 @@ namespace MVC_SVotos.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_SVotos.Candidato> GetBicicletaByID(int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.Candidato> GetCandidatoByID(int id, string accessToken)
         {
             var response = await GetByIDMethod("Candidato/GetByID", id, accessToken);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -115,7 +115,7 @@ namespace MVC_SVotos.Functions
         }
 
 
-        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> BicicletaEdit(BD_SVotos.Candidato object_to_serialize, int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> CandidatoEdit(BD_SVotos.Candidato object_to_serialize, int id, string accessToken)
         {
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await EditMethod("Candidato/Edit", id, json_, accessToken);
@@ -129,7 +129,7 @@ namespace MVC_SVotos.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> BicicletaDelete(int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> CandidatoDelete(int id, string accessToken)
         {
             //var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await DeleteMethod("Candidato/Delete", id, accessToken);//httpClient.PostAsync(baseurl + "Movies/Set", content);
