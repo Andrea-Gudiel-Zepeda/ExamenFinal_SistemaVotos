@@ -1,0 +1,79 @@
+﻿@model BD_Bicicletas.Candidato;
+
+@{
+    ViewData["Title"] = "Listado de Bicicletas";
+}
+
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <form asp-action="CreateBici">
+                    <div class="card-header">@ViewData["Title"]</div>
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="Nombre" class="control-label"></label>
+                                    <input asp-for="Nombre" class="form-control" />
+                                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="Imagen" class="control-label"></label>
+                                    <input asp-for="Imagen" type="file" class="form-control" />
+                                    <span asp-validation-for="Imagen" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <div class="form-group">
+                                        <label asp-for="Tipo" class="control-label">Tipo</label>
+                                        <select asp-for="Tipo" class="form-control" asp-items="@ViewBag.Tiposls"></select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="Marca" class="control-label"></label>
+                                    <input asp-for="Marca" class="form-control" />
+                                    <span asp-validation-for="Marca" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="Tamaño" class="control-label"></label>
+                                    <input asp-for="Tamaño" class="form-control" />
+                                    <span asp-validation-for="Tamaño" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="CantidadPlatos" class="control-label"></label>
+                                    <input asp-for="CantidadPlatos" class="form-control" type="number" step="1" />
+                                    <span asp-validation-for="CantidadPlatos" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-sm-12">
+                                    <label asp-for="CantidadPiñones" class="control-label"></label>
+                                    <input asp-for="CantidadPiñones" class="form-control" type="number" step="1"/>
+                                    <span asp-validation-for="CantidadPiñones" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="Crear" class="btn btn-primary" /> <a asp-action="BicicletumList" class="btn btn-danger">Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

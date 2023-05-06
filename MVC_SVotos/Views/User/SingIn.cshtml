@@ -1,0 +1,40 @@
+﻿@model BD_Bicicletas.Voto;
+
+@{
+    ViewData["Title"] = "Inicio de sesión";
+}
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <form method="post" asp-action="SingIn">
+                    <div class="card-header">@ViewData["Title"]</div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <label asp-for="NombreUsuario" class="control-label"></label>
+                                    <input asp-for="NombreUsuario" class="form-control" />
+                                    <span asp-validation-for="NombreUsuario" class="text-danger"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password" class="control-label"></label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <h4>@ViewBag.Credenciales</h4>
+                    <div class="card-footer">
+                        <input type="submit" value="Iniciar sesión" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
