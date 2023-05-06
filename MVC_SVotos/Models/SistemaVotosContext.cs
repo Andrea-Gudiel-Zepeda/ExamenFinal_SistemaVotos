@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace MVC_SVotos.Models;
+namespace ExamenFinal_SistemaVotos.Models;
 
 public partial class SistemaVotosContext : DbContext
 {

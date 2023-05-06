@@ -5,9 +5,9 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExamenFinal_SistemaVotos", "ExamenFinal_SistemaVotos\ExamenFinal_SistemaVotos.csproj", "{5EB8FD99-1DA3-4EB3-91C6-6E01AF5441DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BD_SVotos", "BD_SVotos\BD_SVotos.csproj", "{88CE2BB9-1964-4877-AFAC-80CF5B329EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BD_SVotos", "BD_SVotos\BD_SVotos.csproj", "{88CE2BB9-1964-4877-AFAC-80CF5B329EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_SVotos", "MVC_SVotos\MVC_SVotos.csproj", "{EF6187E8-FF4D-46AA-8D70-EFDE56114FB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVC_SVotos", "MVC_SVotos\MVC_SVotos.csproj", "{EF6187E8-FF4D-46AA-8D70-EFDE56114FB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

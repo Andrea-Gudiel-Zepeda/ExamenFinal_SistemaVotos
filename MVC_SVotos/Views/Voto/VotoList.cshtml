@@ -1,7 +1,7 @@
-﻿@model IEnumerable<BD_Bicicletas.Candidato>
+﻿@model IEnumerable<BD_SVotos.Voto>
 
 @{
-    ViewData["Title"] = "Listado de Bicicletas";
+    ViewData["Title"] = "Listado de Votos";
 }
 
 
@@ -15,28 +15,19 @@
                         <thead>
                             <tr>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Imagen)
-                                </th>
-
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Nombre)
+                                    @Html.DisplayNameFor(model => model.Voto1)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Tipo)
+                                    @Html.DisplayNameFor(model => model.CandidatoId)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Marca)
+                                    @Html.DisplayNameFor(model => model.VotanteId)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Tamaño)
+                                    @Html.DisplayNameFor(model => model.FechaHora)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.CantidadPlatos)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.CantidadPiñones)
-                                </th>
-                                <th>
+                                    @Html.DisplayNameFor(model => model.Ip)
                                 </th>
                             </tr>
                         </thead>
@@ -45,40 +36,27 @@
                             {
                                 <tr>
                                     <td>
-                                        @Html.DisplayFor(modelItem => item.Imagen)
+                                        @Html.DisplayFor(modelItem => item.Voto1)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.CandidatoId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.VotanteId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.FechaHora)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Ip)
                                     </td>
 
-
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Nombre)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Tipo)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Marca)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Tamaño)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CantidadPlatos)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.CantidadPiñones)
-                                    </td>
-
-                                    <td>
-                                        <a asp-action="EditBici" asp-route-id="@item.Id">Editar</a> |
-                                        <a asp-action="DetailsBici" asp-route-id="@item.Id">Detalles</a> |
-                                        <a asp-action="DeleteBici" asp-route-id="@item.Id">Eliminar</a>
-                                    </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
                     <div class="card-footer">
-                        <a asp-action="CreateBici" class="btn btn-primary">Crear</a>
+                        <a asp-action="CreateVoto" class="btn btn-primary">Crear</a>
                     </div>
                 </div>
             </div>
