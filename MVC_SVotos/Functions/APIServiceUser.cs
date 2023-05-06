@@ -7,7 +7,7 @@ namespace MVC_Bicicletas.Functions
     public class APIServiceUser
     {
         private static int timeout = 30;
-        private static string baseurl = "https://localhost:7180/";
+        private static string baseurl = "https://localhost:7110/";
 
         //METODOS PARA EL CRUD - GENERALES
         public static async Task<System.Net.Http.HttpResponseMessage> GetListMethod(string url, string accessToken)
@@ -74,12 +74,12 @@ namespace MVC_Bicicletas.Functions
         }
 
         //METODOS DE LA CLASE USUARIO
-        public static async System.Threading.Tasks.Task<IEnumerable<BD_Bicicletas.Voto>> UserGetList(string accessToken)
+        public static async System.Threading.Tasks.Task<IEnumerable<BD_SVotos.User>> UserGetList(string accessToken)
         {
             var response = await GetListMethod("User/GetList", accessToken);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<IEnumerable<BD_Bicicletas.Voto>>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<IEnumerable<BD_SVotos.User>>(await response.Content.ReadAsStringAsync());
             }
             else
             {
@@ -87,13 +87,13 @@ namespace MVC_Bicicletas.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_Bicicletas.GeneralResult> UserSet(BD_Bicicletas.Voto object_to_serialize, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> UserSet(BD_SVotos.Voto object_to_serialize, string accessToken)
         {
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await SetMethod("User/Set", json_, accessToken);//httpClient.PostAsync(baseurl + "User/Set", content);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<BD_Bicicletas.GeneralResult>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<BD_SVotos.GeneralResult>(await response.Content.ReadAsStringAsync());
             }
             else
             {
@@ -101,12 +101,12 @@ namespace MVC_Bicicletas.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_Bicicletas.Voto> GetUserByID(int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.User> GetUserByID(int id, string accessToken)
         {
             var response = await GetByIDMethod("User/GetByID", id, accessToken);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<BD_Bicicletas.Voto>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<BD_SVotos.User>(await response.Content.ReadAsStringAsync());
             }
             else
             {
@@ -114,13 +114,13 @@ namespace MVC_Bicicletas.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_Bicicletas.GeneralResult> UserEdit(BD_Bicicletas.Voto object_to_serialize, int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> UserEdit(BD_SVotos.Voto object_to_serialize, int id, string accessToken)
         {
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await EditMethod("User/Edit", id, json_, accessToken);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<BD_Bicicletas.GeneralResult>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<BD_SVotos.GeneralResult>(await response.Content.ReadAsStringAsync());
             }
             else
             {
@@ -128,13 +128,13 @@ namespace MVC_Bicicletas.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_Bicicletas.GeneralResult> UserDelete(int id, string accessToken)
+        public static async System.Threading.Tasks.Task<BD_SVotos.GeneralResult> UserDelete(int id, string accessToken)
         {
             //var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var response = await DeleteMethod("User/Delete", id, accessToken);//httpClient.PostAsync(baseurl + "Movies/Set", content);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<BD_Bicicletas.GeneralResult>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<BD_SVotos.GeneralResult>(await response.Content.ReadAsStringAsync());
             }
             else
             {
@@ -142,7 +142,7 @@ namespace MVC_Bicicletas.Functions
             }
         }
 
-        public static async System.Threading.Tasks.Task<BD_Bicicletas.Token> Login(BD_Bicicletas.Token object_to_serialize)
+        public static async System.Threading.Tasks.Task<BD_SVotos.Token> Login(BD_SVotos.Token object_to_serialize)
         {
             var json_ = Newtonsoft.Json.JsonConvert.SerializeObject(object_to_serialize);
             var content = new StringContent(json_, Encoding.UTF8, "application/json");
@@ -155,7 +155,7 @@ namespace MVC_Bicicletas.Functions
             var response = await httpClient.PostAsync(baseurl + "Login/Login", content);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                return JsonConvert.DeserializeObject<BD_Bicicletas.Token>(await response.Content.ReadAsStringAsync());
+                return JsonConvert.DeserializeObject<BD_SVotos.Token>(await response.Content.ReadAsStringAsync());
             }
             else
             {

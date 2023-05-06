@@ -35,8 +35,8 @@ namespace MVC_Bicicletas.Controllers
         [HttpPost]
         public async Task<IActionResult> SingIn(string NombreUsuario, string Password)
         {
-            BD_Bicicletas.Token token = await Functions.APIServiceUser.Login(
-                new BD_Bicicletas.Token
+            BD_SVotos.Token token = await Functions.APIServiceUser.Login(
+                new BD_SVotos.Token
                 {
                     token = "asdkhfalskdjfhas"
                 });
@@ -46,7 +46,7 @@ namespace MVC_Bicicletas.Controllers
                 return NotFound();
             }
 
-            IEnumerable<BD_Bicicletas.Voto> usuario = await Functions.APIServiceUser.UserGetList(token.token);
+            IEnumerable<BD_SVotos.User> usuario = await Functions.APIServiceUser.UserGetList(token.token);
 
             foreach (var us in usuario)
             {
@@ -62,7 +62,7 @@ namespace MVC_Bicicletas.Controllers
                         var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
                         await HttpContext.SignInAsync(claimsPrincipal);
-                        return RedirectToAction("Login", "User");
+                        return RedirectToAction("Login", "Voto");
 
                     }
                     else

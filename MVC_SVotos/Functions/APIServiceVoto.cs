@@ -8,7 +8,7 @@ namespace MVC_SVotos.Functions
     public class APIServiceVoto
     {
         private static int timeout = 30;
-        private static string baseurl = "https://localhost:7180/";
+        private static string baseurl = "https://localhost:7110/";
 
         //METODOS PARA EL CRUD - GENERALES
         public static async Task<System.Net.Http.HttpResponseMessage> GetListMethod(string url, string accessToken)
